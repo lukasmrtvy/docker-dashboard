@@ -21,7 +21,8 @@ RUN mkdir -p /opt/check  && \
     chmod +x /opt/check/exec.sh /entrypoint.sh && \
     chown ${user}: -R /opt/check
 
-WORKDIR  /opt/check/
+
+WORKDIR  /opt/check
 
 EXPOSE 1337 9001
 
