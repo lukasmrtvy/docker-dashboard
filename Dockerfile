@@ -23,8 +23,6 @@ WORKDIR  /opt/check/
 
 EXPOSE 80
 
-ENTRYPOINT 
-
 USER leet
 
 CMD darkhttpd /opt/check --port 1337 --daemon && crond -f
