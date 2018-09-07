@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    <h1>Hello, world!</h1>
+    <script src="cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+   
+<script>
+$(document).ready(function() {
+        myTable = $('#example').DataTable({
+        "ajax": "result.json"
+        });
+    });
+</script>
+
+<div class="container">
+<table id="example">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>State</th>
+        </tr>
+    </thead>
+  </table>
+</div>
+
+  </body>
+</html>
