@@ -1,4 +1,3 @@
-
 FROM alpine:3.8
 
 ENV UID 1337
