@@ -18,6 +18,6 @@ jq --arg arg_name "$name" \
   --arg arg_state "$state" \
         '.data += [[ $arg_name, $arg_state  ]]' "$result" | sponge "$result"
         
-echo "$(date -I'seconds') INFO Loading data from docker.socket DONE"
-
 done
+
+echo "$(date -I'seconds') INFO Loading data from docker.socket DONE"
