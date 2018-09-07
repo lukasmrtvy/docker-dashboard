@@ -8,6 +8,7 @@ COPY scripts/exec.sh /opt/check/
 COPY scripts/index.html /opt/check/
 COPY scripts/favicon.ico /opt/check/
 COPY scripts/entrypoint.sh /
+COPY conf/supervisord.conf /
 
 RUN adduser -D -S -u ${uid} ${user} -G ${group}
 
