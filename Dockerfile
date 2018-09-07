@@ -28,5 +28,3 @@ EXPOSE 1337 9001
 ENTRYPOINT ["/entrypoint.sh"]
 
 CMD ["supervisord","-c","/supervisord.conf"]
-
-#CMD [ "sh", "-c", "su -s /bin/bash -c 'darkhttpd /opt/check --port 1337 --daemon && crond -f' ${user}" ]
