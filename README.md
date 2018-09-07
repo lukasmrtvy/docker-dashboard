@@ -2,7 +2,7 @@
 
 # Info
 
-`docker rm -f docker-dashboard; docker run -d --restart always -p 1337:1337 -p 9001:9001 -e TZ=Europe/Prague -v /var/run/docker.sock:/var/run/docker.sock:ro --name docker-dashboard docker-dashboard:latest`
+`docker rm -f docker-dashboard; docker run -d --restart always -p 1337:1337 -p 9001:9001 -e TZ=Europe/Prague -v /var/run/docker.sock:/var/run/docker.sock:ro --name docker-dashboard lukasmrtvy/docker-dashboard:latest`
 
 # Variables
 - custom_cron= (default: */5 * * * * )
