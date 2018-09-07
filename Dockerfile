@@ -5,7 +5,8 @@ ENV USER leet
 ENV GROUP ping
 
 COPY scripts/exec.sh /opt/check/
-COPY scripts/index.html /opt/check
+COPY scripts/index.html /opt/check/
+COPY scripts/favicon.ico /opt/check/
 
 RUN adduser -D -S -u ${UID} ${USER} -G ${GROUP}
 
