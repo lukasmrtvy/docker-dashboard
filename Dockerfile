@@ -24,7 +24,7 @@ WORKDIR  /opt/check/
 
 EXPOSE 1337
 
-COPY entrypoint.sh /
+COPY scripts/entrypoint.sh /
 RUN chmod +x /entrypoint.sh
 
 ENTRYPOINT ["/entrypoint.sh"]
