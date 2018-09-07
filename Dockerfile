@@ -1,7 +1,7 @@
 FROM alpine:3.8
 
-COPY exec.sh /opt/check/
-COPY index.html /opt/check
+COPY scripts/exec.sh /opt/check/
+COPY scripts/index.html /opt/check
 
 RUN echo "@testing http://nl.alpinelinux.org/alpine/edge/testing/" >> /etc/apk/repositories
 
