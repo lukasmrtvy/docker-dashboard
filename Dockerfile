@@ -13,7 +13,7 @@ RUN adduser -D -S -u ${uid} ${user} -G ${group}
 
 RUN echo "@testing http://nl.alpinelinux.org/alpine/edge/testing/" >> /etc/apk/repositories
 
-RUN apk update && apk add --no-cache jq curl darkhttpd tzdata bash
+RUN apk update && apk add --no-cache jq curl darkhttpd tzdata bash supervisord
 RUN apk --no-cache add moreutils@testing
 
 RUN mkdir -p /opt/check  && \
@@ -26,4 +26,6 @@ EXPOSE 1337
 
 ENTRYPOINT ["/entrypoint.sh"]
 
-CMD [ "sh", "-c", "su -s /bin/bash -c 'darkhttpd /opt/check --port 1337 --daemon && crond -f' ${user}" ]
+CMD ["supervisord","-c","supervisord.conf"]
+
+#CMD [ "sh", "-c", "su -s /bin/bash -c 'darkhttpd /opt/check --port 1337 --daemon && crond -f' ${user}" ]
