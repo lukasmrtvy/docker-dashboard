@@ -14,7 +14,7 @@ RUN adduser -D -S -u ${uid} ${user} -G ${group}
 
 RUN echo "@testing http://nl.alpinelinux.org/alpine/edge/testing/" >> /etc/apk/repositories
 
-RUN apk update && apk add --no-cache jq curl darkhttpd tzdata bash supervisord
+RUN apk update && apk add --no-cache jq curl darkhttpd tzdata bash supervisor
 RUN apk --no-cache add moreutils@testing
 
 RUN mkdir -p /opt/check  && \
