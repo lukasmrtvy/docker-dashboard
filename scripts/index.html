@@ -18,7 +18,9 @@
     <script>
         $(document).ready(function() {
             myTable = $('#example').DataTable({
-                "ajax": "result.json"
+                "ajax": "result.json",
+                "paging": false,
+                "searching": false
             });
         });
     </script>
