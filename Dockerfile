@@ -23,7 +23,7 @@ RUN mkdir -p /opt/check  && \
 
 WORKDIR  /opt/check/
 
-EXPOSE 1337
+EXPOSE 1337 9001
 
 ENTRYPOINT ["/entrypoint.sh"]
 
