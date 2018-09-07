@@ -1,14 +1,15 @@
 FROM alpine:3.8
 
-ENV UID 1337
-ENV USER leet
-ENV GROUP ping
+ENV uid 1337
+ENV user leet
+ENV group ping
 
 COPY scripts/exec.sh /opt/check/
 COPY scripts/index.html /opt/check/
 COPY scripts/favicon.ico /opt/check/
+COPY scripts/entrypoint.sh /
 
-RUN adduser -D -S -u ${UID} ${USER} -G ${GROUP}
+RUN adduser -D -S -u ${uid} ${user} -G ${group}
 
 RUN echo "@testing http://nl.alpinelinux.org/alpine/edge/testing/" >> /etc/apk/repositories
 
@@ -16,17 +17,13 @@ RUN apk update && apk add --no-cache jq curl darkhttpd tzdata bash
 RUN apk --no-cache add moreutils@testing
 
 RUN mkdir -p /opt/check  && \
-    echo '*/5 * * * *    /opt/check/exec.sh' >> /etc/crontabs/root  && \
-    chmod +x /opt/check/exec.sh  && \
-    chown ${USER}: -R /opt/check
+    chmod +x /opt/check/exec.sh /entrypoint.sh && \
+    chown ${user}: -R /opt/check
 
 WORKDIR  /opt/check/
 
 EXPOSE 1337
 
-COPY scripts/entrypoint.sh /
-RUN chmod +x /entrypoint.sh
-
 ENTRYPOINT ["/entrypoint.sh"]
 
-CMD ["su -s /bin/bash -c 'darkhttpd /opt/check --port 1337 --daemon && crond -f' ${user}"]
+CMD [ "sh", "-c", "su -s /bin/bash -c 'darkhttpd /opt/check --port 1337 --daemon && crond -f' ${user}" ]
