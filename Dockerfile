@@ -24,6 +24,9 @@ WORKDIR  /opt/check/
 
 EXPOSE 1337
 
-USER leet
+COPY entrypoint.sh /
+RUN chmod +x /entrypoint.sh
 
-CMD darkhttpd /opt/check --port 1337 --daemon && crond -f
+ENTRYPOINT ["/entrypoint.sh"]
+
+CMD ["su -s /bin/bash -c 'darkhttpd /opt/check --port 1337 --daemon && crond -f' ${user}"]
